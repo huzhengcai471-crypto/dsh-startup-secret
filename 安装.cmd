@@ -2,8 +2,7 @@
 rem ---------------------------------------------------------------
 rem NOTE: do NOT add a chcp line to this file.
 rem This file is saved as UTF-8. cmd.exe seeks the next line by BYTE
-rem offset, so the encoding must stay stable. Avoid non-ASCII in code
-rem paths; Chinese text is only used inside echo for readability.
+rem offset, so the encoding must stay stable.
 rem ---------------------------------------------------------------
 setlocal enabledelayedexpansion
 cd /d "%~dp0"
@@ -29,10 +28,11 @@ rem 2. 定位 dsh 命令
 set "DSH=dsh"
 where dsh >nul 2>nul
 if errorlevel 1 (
-  if exist "%LOCALAPPDATA%ProgramsWorkBuddyesourcescliindsh.cmd" (
-    set "DSH=%LOCALAPPDATA%ProgramsWorkBuddyesourcescliindsh.cmd"
+  set "CAND=%LOCALAPPDATA%\Programs\WorkBuddy\resources\cli\bin\dsh.cmd"
+  if exist "!CAND!" (
+    set "DSH=!CAND!"
   ) else (
-    echo [错误] 找不到 dsh 命令。请先安装 WorkBuddy，或把 dsh 加入 PATH。
+    echo [错误] 找不到 dsh 命令。请先安装 DSH，或把 dsh 加入 PATH。
     pause
     exit /b 1
   )
@@ -58,18 +58,18 @@ if errorlevel 1 (
 )
 echo.
 
-rem 5. 写入 bundles（关键：不加这一步插件不会生效）
-set "PROFILE_PKG=%USERPROFILE%.dshprofiles%PROFILE%package.json"
-if not exist "%PROFILE_PKG%" (
-  echo [提醒] 未找到 %PROFILE_PKG%，请手动确认 bundles。
+rem 5. 检查 bundles（关键：不加这一步插件不会生效）
+set "PROFILE_PKG=%USERPROFILE%\.dsh\profiles\%PROFILE%\package.json"
+if not exist "!PROFILE_PKG!" (
+  echo [提醒] 未找到 packge.json，请手动确认 bundles。
   pause
   exit /b 0
 )
-findstr /c:"dsh-startup-secret" "%PROFILE_PKG%" >nul 2>nul
+findstr /c:"dsh-startup-secret" "!PROFILE_PKG!" >nul 2>nul
 if errorlevel 1 (
   echo.
   echo [重要] 依赖已装好，但 bundles 里还没有本插件。
-  echo        请打开: %PROFILE_PKG%
+  echo        请打开: !PROFILE_PKG!
   echo        在 dsh.profile.bundles 数组里加入: "dsh-startup-secret"
 )
 echo.
@@ -77,6 +77,6 @@ echo ============================================
 echo   安装完成
 echo ============================================
 echo.
-echo 下一步: 重启 WorkBuddy（完全退出再打开），启动动画即可生效。
+echo 下一步: 重启 DSH（完全退出再打开），启动动画即可生效。
 pause
 exit /b 0

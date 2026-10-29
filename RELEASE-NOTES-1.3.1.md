@@ -64,7 +64,7 @@
 脚本会自动：
 
 1. 定位同目录下的 tgz
-2. 定位 `dsh` 命令（PATH 优先，其次 DeepSeek Harness 内置 CLI）
+2. 定位 `dsh` 命令（PATH 优先，其次 DSH 内置 CLI）
 3. 询问装到哪个 profile（`web` / `desktop`，默认 `web`）
 4. 执行 `dsh plugin add`
 5. 把 `dsh-startup-secret` 写入 `dsh.profile.bundles`（**这步不能少**，
@@ -90,7 +90,7 @@ dsh plugin --profile web add ./dsh-startup-secret-1.3.1.tgz
 ### 环境要求
 
 - Node.js ≥ 20
-- DeepSeek Harness（web profile 或 Desktop 桌面端均可）
+- DSH（web profile 或 desktop profile 均可）
 
 ---
 

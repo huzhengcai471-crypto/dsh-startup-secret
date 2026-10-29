@@ -1,6 +1,6 @@
 # dsh-startup-secret
 
-DeepSeek Harness 的启动界面与启动动画插件（二次创作版）。
+DSH 的启动界面与启动动画插件（二次创作版）。
 
 长征机主题开机动画：黑幕徽章标识 → 过曝洗白 → 暗色「技术档案」底板 →
 五步交互式访问授权 → 色散故障揭幕。右下角配赛博电子风人物立绘（可切换，也可设为「空」）。
@@ -192,7 +192,7 @@ dsh plugin --profile web add ./dsh-startup-secret-1.3.1.tgz
 
 | 项 | 要求 |
 |---|---|
-| 平台 | DSH **web** profile（含 DeepSeek Harness Desktop 桌面端） |
+| 平台 | DSH **web** profile 与 **desktop** profile |
 | Node | **>= 20** |
 | 依赖 | 无（不需要 `npm install`） |
 

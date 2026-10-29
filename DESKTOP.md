@@ -4,7 +4,7 @@
 
 | | web profile | desktop profile |
 |---|---|---|
-| 载体 | `dsh web` 起的本地服务 | DeepSeek Harness Desktop（Electron 桌面端） |
+| 载体 | `dsh web` 起的本地服务 | DSH desktop profile（Electron 桌面端） |
 | profile 目录 | `%USERPROFILE%\.dsh\profiles\web` | `%USERPROFILE%\.dsh\profiles\desktop` |
 | 安装 | `dsh plugin --profile web add …` | `dsh plugin --profile desktop add …` |
 | 重启方式 | 关掉启动器窗口再重新双击 | 完全退出桌面端再打开 |
@@ -17,7 +17,7 @@
 ## 一、装到桌面端
 
 ```bash
-# 1) 先完全退出 DeepSeek Harness Desktop（进程不要留着）
+# 1) 先完全退出 DSH 桌面端（进程不要留着）
 # 2) 再装（注意：还要把包名写入 dsh.profile.bundles，见 INSTALL.md 第二步）
 dsh plugin --profile desktop add github:huzhengcai471-crypto/dsh-startup-secret
 # 3) 重新打开桌面端
@@ -33,7 +33,7 @@ Windows 上也可以双击 `安装.cmd`：它会提示你输入目标 profile（
 DSH 会直接报：
 
 ```
-Open DeepSeek Harness Desktop once to initialize its profile,
+Open the DSH desktop app once to initialize its profile,
 then fully quit it before running dsh plugin --profile desktop.
 ```
 
@@ -107,8 +107,8 @@ then fully quit it before running dsh plugin --profile desktop.
 | 浏览器半侧自举逻辑（DOM stub 跑真代码） | ✅ 通过 41 项断言 |
 | **桌面端实机**（真实 Electron 里看到动画） | ⚠️ **未实机验证** |
 
-最后一行的原因：写这份适配时开发机上没有装 DeepSeek Harness Desktop
-（`%LOCALAPPDATA%\Programs\DeepSeek Harness Desktop` 不存在，
+最后一行的原因：写这份适配时开发机上没有装 DSH 桌面端
+（`%LOCALAPPDATA%\Programs\WorkBuddy` 不存在，
 `profiles\desktop` 里只剩指向它的失效联接），无法启动桌面端做端到端确认。
 
 因此桌面端用的是「**双保险**」设计：`tapIndex` 能用就走和 web 完全相同的路径，

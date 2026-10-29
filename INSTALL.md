@@ -103,7 +103,7 @@ dsh plugin --profile web add github:huzhengcai471-crypto/dsh-startup-secret
 - `/dsh-startup/splash.js` 返回 **401** → 路由已注册（401 是插件自己的信任栅栏，正常）
 - 返回 **404** → 没装成功，或没重启
 
-打开页面后应该看到：黑幕 → DeepSeek 标识 → 过曝洗白 → 暖白底板 →
+打开页面后应该看到：黑幕 → 徽章标识 → 过曝洗白 → 暖白底板 →
 五步授权序列 → 揭幕。
 
 ---

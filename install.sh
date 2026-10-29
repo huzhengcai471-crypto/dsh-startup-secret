@@ -21,7 +21,7 @@ echo
 
 # 2. 定位 dsh 命令
 if ! command -v dsh >/dev/null 2>&1; then
-  echo "[错误] 找不到 dsh 命令。请先安装 DeepSeek Harness，或把 dsh 加入 PATH。"
+echo "[错误] 找不到 dsh 命令。请先安装 DSH，或把 dsh 加入 PATH。"
   exit 1
 fi
 echo "使用 dsh: $(command -v dsh)"
@@ -34,7 +34,7 @@ echo
 
 # 4. desktop 提示
 if [ "$PROFILE" = "desktop" ]; then
-  echo "[提示] 安装到 desktop profile 前，请先完全退出 DeepSeek Harness Desktop"
+echo "[提示] 安装到 desktop profile 前，请先完全退出 DSH 桌面端"
   echo "       （含系统托盘图标右键退出），否则写入会被覆盖。"
   echo
 fi
